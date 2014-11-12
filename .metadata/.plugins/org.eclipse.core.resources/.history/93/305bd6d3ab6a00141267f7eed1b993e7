@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">biser</string>
+    <string name="action_settings">Settings</string>
+    <string name="pearlColorHint">Номер коліру</string>
+    <string name="buttonFind">Знайти</string>
+    <string name="positionHint">місце</string>
+
+</resources>

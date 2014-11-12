@@ -1,0 +1,5 @@
+package com.biser.biser.test;
+
+public @interface Test {
+
+}

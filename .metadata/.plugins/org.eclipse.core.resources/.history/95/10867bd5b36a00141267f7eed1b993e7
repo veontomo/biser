@@ -1,0 +1,7 @@
+package com.biser.biser.test;
+
+public class BeadFinderTest {
+	public BeadFinderTest(){
+		
+	}
+}

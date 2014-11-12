@@ -1,0 +1,6 @@
+
+public class BeadFinder {
+	public String locate(String color){
+		return colorM
+	}
+}

@@ -1,0 +1,29 @@
+package com.biser.biser;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class BeadFinderTest {
+
+	@Test
+	public void testSetBeadStand() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetBeadStand() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testBeadFinder() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testLocate() {
+		fail("Not yet implemented");
+	}
+
+}

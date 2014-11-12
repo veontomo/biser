@@ -1,0 +1,10 @@
+package com.biser.biser;
+
+public class BeadFinder {
+	
+	public BeadFinder(){};
+	
+	public String locate(String color){
+		return color.concat(color);
+	}
+}

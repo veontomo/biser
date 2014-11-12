@@ -1,0 +1,11 @@
+package com.biser.biser.test;
+
+public class BeadFinderTest {
+	public BeadFinderTest(){
+		
+	}
+	@Test
+    public void newArrayListsHaveNoElements() {
+        assertThat(new ArrayList().size(), is(0));
+    }
+}

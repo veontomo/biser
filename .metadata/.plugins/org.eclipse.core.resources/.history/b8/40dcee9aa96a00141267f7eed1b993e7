@@ -1,0 +1,16 @@
+package com.biser.biser;
+
+public class BeadFinder {
+	/**
+	 * Path to the file with bead stand color
+	 */
+	private String _beadStand;
+	
+	public BeadFinder(){
+		
+	};
+	
+	public String locate(String color){
+		return color.concat(color);
+	}
+}
