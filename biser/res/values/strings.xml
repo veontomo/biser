@@ -3,8 +3,11 @@
 
     <string name="app_name">Бісер</string>
     <string name="action_settings">Settings</string>
-    <string name="pearlColorHint">Номер коліру</string>
+    <string name="pearlColorHint">Номер кольору</string>
     <string name="buttonFind">Знайти</string>
     <string name="positionHint">місце</string>
+    <string name="row">рядок</string>
+    <string name="column">стовпчик</string>
+    <string name="absent">відсутній</string>
 
 </resources>

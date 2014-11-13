@@ -1,6 +1,7 @@
 package com.biser.biser;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +38,7 @@ public class MainActivity extends ActionBarActivity {
     }
     
     public void findPearl(View view){
+    	Resources res = getResources();
     	TextView colorField = (TextView) findViewById(R.id.pearlColor);
     	String colorString = colorField.getText().toString();
     	if(colorString.matches("\\d+-\\d+")){
@@ -52,20 +54,25 @@ public class MainActivity extends ActionBarActivity {
         TextView positionField = (TextView) findViewById(R.id.position);
         String positionString = positionField.getText().toString();
         String result = colorString + ": ";
-        String searchResult = "";
+        String[] searchResult;
         BeadFinder finder = new BeadFinder();
         
         try {
         	finder.insertIntoHash();
         	searchResult = finder.getByColor(colorString);
         	if (searchResult == null){
-        		searchResult = "відсутній";
+        		result = res.getString(R.string.absent);
+        	} else {
+        		result = searchResult[0] + " " +
+        				res.getString(R.string.column) + " " +
+        				searchResult[1] + " " +
+        				res.getString(R.string.row) + " " +
+        				searchResult[2];
         	}
         } catch (Exception e){
-        	searchResult = e.getMessage();
+        	result = e.getMessage();
         } finally {
-        	result = colorString + ": " + searchResult + '\n';
-        	positionField.setText(result + positionString);
+        	positionField.setText(colorString + ": " + result + '\n' + positionString);
         }
         
     }

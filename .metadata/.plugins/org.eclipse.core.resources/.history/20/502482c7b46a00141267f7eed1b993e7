@@ -1,8 +1,0 @@
-package com.biser.biser.test;
-
-public class BeadFinderTest extends TestCase {
-	@Test
-    public void zeroIsZero() {
-        assertEquals(0, 0);
-    }
-}
