@@ -43,6 +43,10 @@ public class MainActivity extends ActionBarActivity {
     		colorString = colorString.replace('-', '/');
     		
     	};
+    	if (colorString.equals("")){
+    		return;
+    	}
+    	
     	colorField.setText("");
     	
         TextView positionField = (TextView) findViewById(R.id.position);
@@ -50,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
         String result = colorString + ": ";
         String searchResult = "";
         BeadFinder finder = new BeadFinder();
+        
         try {
         	finder.insertIntoHash();
         	searchResult = finder.getByColor(colorString);
