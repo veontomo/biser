@@ -4,5 +4,4 @@ INDEX VERSION 1.126+C:\Users\Andrea\workspace\.metadata\.plugins\org.eclipse.jdt
 3425015741.index
 3751988529.index
 365972372.index
-2674175088.index
 1284074322.index

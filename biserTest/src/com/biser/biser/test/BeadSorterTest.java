@@ -4,26 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.biser.biser.BeadSorter;
+
 public class BeadSorterTest {
 
-	@Test
-	public void testGet_br() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testBeadSorter() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNextLine() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testInsertIntoHash() {
-		fail("Not yet implemented");
+		BeadSorter bs = new BeadSorter("stand");
+		assertEquals(bs.nextLine(), "aaa");
 	}
 
 	@Test

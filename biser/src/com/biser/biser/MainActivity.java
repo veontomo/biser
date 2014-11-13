@@ -39,16 +39,29 @@ public class MainActivity extends ActionBarActivity {
     public void findPearl(View view){
     	TextView colorField = (TextView) findViewById(R.id.pearlColor);
     	String colorString = colorField.getText().toString();
+    	if(colorString.matches("\\d+-\\d+")){
+    		colorString = colorString.replace('-', '/');
+    		
+    	};
+    	colorField.setText("");
+    	
         TextView positionField = (TextView) findViewById(R.id.position);
-
+        String positionString = positionField.getText().toString();
+        String result = colorString + ": ";
+        String searchResult = "";
         BeadFinder finder = new BeadFinder();
-        String result = "";
-        if (finder.hasFile()){
-        	result = finder.locate(colorString);
-        } else {
-        	result = "No file";
+        try {
+        	finder.insertIntoHash();
+        	searchResult = finder.getByColor(colorString);
+        	if (searchResult == null){
+        		searchResult = "відсутній";
+        	}
+        } catch (Exception e){
+        	searchResult = e.getMessage();
+        } finally {
+        	result = colorString + ": " + searchResult + '\n';
+        	positionField.setText(result + positionString);
         }
         
-        positionField.setText(result);
     }
 }
