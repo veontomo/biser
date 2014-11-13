@@ -1,0 +1,12 @@
+package com.biser.biser.test;
+
+import org.junit.Test;
+
+import junit.framework.TestCase;
+
+public class BeadFinderTest extends TestCase {
+	@Test
+    public void testzeroIsZero() {
+        assertEquals(0, 1);
+    }
+}

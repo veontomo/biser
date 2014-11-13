@@ -39,9 +39,15 @@ public class MainActivity extends ActionBarActivity {
     public void findPearl(View view){
     	TextView colorField = (TextView) findViewById(R.id.pearlColor);
     	String colorString = colorField.getText().toString();
-    	BeadFinder finder = new BeadFinder();
-    	String result = finder.locate(colorString);
         TextView positionField = (TextView) findViewById(R.id.position);
+
+        BeadFinder finder = new BeadFinder();
+        String result = "";
+        if (finder.hasFile()){
+        	result = finder.locate(colorString);
+        } else {
+        	result = "No file";
+        }
         
         positionField.setText(result);
     }

@@ -1,0 +1,55 @@
+package com.biser.biser;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * Sorts color.
+ * 
+ * It loads the file that contains sequence of colors on the stand and creates another file
+ * each line of which contain bead color and its location on the stand. The lines of the 
+ * output file are ordered according to bead color. 
+ * @author Andrea
+ *
+ */
+public class BeadSorter {
+	/**
+	 * "handler" for buffer reader
+	 */
+	private BufferedReader _br;
+	
+	/**
+	 * Current ordered content 
+	 */
+	private String _orderedContent;
+	
+	public BufferedReader get_br() {
+		return _br;
+	}
+
+	public BeadSorter(String fileName){
+	    try {
+			FileReader fr = new FileReader(fileName);
+			this._br = new BufferedReader(fr);
+	    } catch (FileNotFoundException e){
+	    	//System.err.println(e.getMessage());
+	    	this._br = null;
+	    } 
+	}
+	
+	
+	public String nextLine(){
+		String line;
+		try {
+			line = this.get_br().readLine();
+		} catch (IOException e){
+			//System.err.println(e.getMessage());
+			line = null;
+		}
+		return line;
+ 	}
+	
+	public order()
+}

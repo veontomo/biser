@@ -40,4 +40,8 @@ public class BeadFinder {
 	public String locate(String color){
 		return color.concat(color);
 	}
+	
+	public boolean hasFile(){
+		return false;
+	}
 }

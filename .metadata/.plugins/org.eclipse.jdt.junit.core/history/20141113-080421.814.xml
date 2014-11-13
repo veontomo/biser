@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BeadFinderTest.testZeroIsZero" project="biserTest" tests="1" started="1" failures="1" errors="0" ignored="0">
+  <testsuite name="nexusS [emulator-5554]" time="0.071">
+    <testsuite name="com.biser.biser.test.BeadFinderTest" time="0.071">
+      <testcase name="testZeroIsZero " classname="com.biser.biser.test.BeadFinderTest" time="0.071">
+        <failure>junit.framework.AssertionFailedError: expected:&lt;0&gt; but was:&lt;1&gt;&#13;
+at com.biser.biser.test.BeadFinderTest.testZeroIsZero(BeadFinderTest.java:10)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:191)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:176)&#13;
+at android.test.InstrumentationTestRunner.onStart(InstrumentationTestRunner.java:555)&#13;
+at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:1837)&#13;
+&#13;
+</failure>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>
