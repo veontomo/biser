@@ -10,11 +10,37 @@ import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+	
+	/**
+	 * bead finder class. 
+	 * 
+	 * The reference is made private in order to avoid multiple calls
+	 * to that class. Each call invokes a sorting procedure that might 
+	 * cause latency.
+	 */
+	private static BeadFinder _bf;
+	
+	/**
+	 * _bf getter
+	 * @return BeadFinder
+	 */
+	public BeadFinder getFinder(){
+		return MainActivity._bf;
+	}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        try {
+        	if (this.getFinder() == null){
+            	MainActivity._bf = new BeadFinder();
+            	MainActivity._bf.insertIntoHash();
+        	}
+        } catch (Exception e){
+        	MainActivity._bf = null;
+        }
     }
 
 
@@ -55,10 +81,9 @@ public class MainActivity extends ActionBarActivity {
         String positionString = positionField.getText().toString();
         String result = colorString + ": ";
         String[] searchResult;
-        BeadFinder finder = new BeadFinder();
+        BeadFinder finder = this.getFinder();
         
         try {
-        	finder.insertIntoHash();
         	searchResult = finder.getByColor(colorString);
         	if (searchResult == null){
         		result = res.getString(R.string.absent);
