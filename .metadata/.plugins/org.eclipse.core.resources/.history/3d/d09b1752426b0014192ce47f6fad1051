@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <Button
+        android:id="@+id/buttonFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pearlColor"
+        android:layout_alignBottom="@+id/pearlColor"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:onClick="findPearl"
+        android:text="@string/buttonFind" />
+
+    <EditText
+        android:id="@+id/pearlColor"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="58dp"
+        android:layout_toLeftOf="@+id/buttonFind"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="@string/pearlColorHint" />
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonFind"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="@string/positionHint" />
+
+</RelativeLayout>

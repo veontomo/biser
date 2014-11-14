@@ -1,0 +1,123 @@
+package com.biser.biser;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.SortedMap;
+
+public class BeadFinder {
+	
+	/////////////////////////////////
+	/**
+	 * "handler" for buffer reader
+	 */
+	private BufferedReader _br;
+	
+	/**
+	 * Current ordered content 
+	 */
+	private SortedMap<String, String> _orderedContent;
+	
+	public BufferedReader get_br() {
+		return _br;
+	}
+
+	public boolean setFile(String fileName){
+	    try {
+			FileReader fr = new FileReader(fileName);
+			this._br = new BufferedReader(fr);
+	    } catch (FileNotFoundException e){
+	    	//System.err.println(e.getMessage());
+	    	this._br = null;
+	    } 
+	}
+	
+	
+	public String nextLine(){
+		String line;
+		try {
+			line = this.get_br().readLine();
+		} catch (IOException e){
+			//System.err.println(e.getMessage());
+			line = null;
+		}
+		return line;
+ 	}
+	
+	public void insertIntoHash(){
+		String line = this.nextLine();
+		String currentMarker = null;
+		Integer currentRow = 1;
+		Integer pointer, rowLen;
+		String[] colors;
+		String key, value;
+		while (line != null){
+			line = line.trim();
+			if (line.equals("")){
+				continue;
+			}
+			if (line.matches("\".*\"")){
+				currentMarker = line;
+				currentRow = 1;
+				continue;
+			}
+			colors = line.split("\\s+");
+			rowLen = colors.length;
+			for (pointer = 0; pointer < rowLen; pointer++){
+				key = colors[pointer];
+				value = currentMarker + Integer.toString(pointer+1) + " " + Integer.toString(currentRow);
+				this._orderedContent.put(key, value);
+			}
+			currentRow++;
+		};
+	}
+	
+	public String toString(){
+		return this._toStringLocal(this._orderedContent, "");
+	}
+	
+	private String _toStringLocal(SortedMap<String, String> m, String acc){
+		if (m.isEmpty()){
+			return acc;
+		}
+		String headKey = m.firstKey(), 
+			   headValue = m.get(headKey);
+		return this._toStringLocal(m.tailMap(headKey), headValue + acc);
+	}
+
+	/////////////////////////////////
+	/**
+	 * Path to the file with bead stand color
+	 */
+	private String _beadStand = "";
+	
+	/**
+	 * _beadStand setter
+	 * @param file
+	 */
+	public void setBeadStand(String file){
+		if (this._isValidFile(file)) {
+			this._beadStand = file;
+		}
+	}
+	
+	private boolean _isValidFile(String fileName){
+		File f = new File(fileName);
+		return (f.exists() && !f.isDirectory());
+
+	} 
+	
+	public String getBeadStand(){
+		return this._beadStand;
+	}
+	
+	public String locate(String color){
+		return color.concat(color);
+	}
+	
+	public boolean hasFile(){
+		return false;
+	}
+}
