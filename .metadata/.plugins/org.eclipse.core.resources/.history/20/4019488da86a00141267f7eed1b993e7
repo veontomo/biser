@@ -1,7 +1,0 @@
-package com.biser.biser;
-
-public class BeadFinder {
-	public String locate(String color){
-		return color;
-	}
-}
